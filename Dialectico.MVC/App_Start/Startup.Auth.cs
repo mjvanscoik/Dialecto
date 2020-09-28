@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using Dialectico.MVC.Models;
+using Dialectico.Data;
 
 namespace Dialectico.MVC
 {

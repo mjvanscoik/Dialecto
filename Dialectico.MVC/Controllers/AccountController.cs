@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Dialectico.MVC.Models;
+using Dialectico.Data;
 
 namespace Dialectico.MVC.Controllers
 {
