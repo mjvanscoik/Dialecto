@@ -22,7 +22,23 @@ namespace Dialectico.Service
                 NotesOnRoot = r.NotesOnRoot
             });
             return rootList;
+        }
 
+        public RootListItem GetRootById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Roots
+                        .Single(e => e.Id == id);
+                return
+                    new RootListItem
+                    {
+                        RootName = entity.RootName,
+                        NotesOnRoot = entity.NotesOnRoot
+                    };
+            }
         }
         public bool CreateRoot(RootCreate model)
         {
@@ -34,12 +50,42 @@ namespace Dialectico.Service
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Roots.Add(entity);
-                return ctx.SaveChanges() == 1;
-
+                if (_db.Roots.Where(e => e.RootName == model.RootName).Any())
+                {
+                    return false;
+                }
+                else
+                {
+                    ctx.Roots.Add(entity);
+                    return ctx.SaveChanges() == 1;
+                }
             }
         }
+        public bool DeleteRoot(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Roots.Single(e => e.Id == id);
 
+                ctx.Roots.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
 
+        }
+        public bool UpdateRoot(RootListItem model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Roots
+                        .Single(e => e.Id == model.Id);
+
+                entity.RootName = model.RootName;
+                entity.NotesOnRoot = model.NotesOnRoot;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

@@ -47,6 +47,14 @@ namespace Dialectico.Data
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
         }
+
+        //public System.Data.Entity.DbSet<Dialectico.Models.WordCreate> WordCreates { get; set; }
+
+        //public System.Data.Entity.DbSet<Dialectico.Models.RootListItem> RootListItems { get; set; }
+
+        //public System.Data.Entity.DbSet<Dialectico.Models.RootListItem> RootListItems { get; set; }
+
+        //public System.Data.Entity.DbSet<Dialectico.Models.RootListItem> RootListItems { get; set; }
     }
     public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
     {

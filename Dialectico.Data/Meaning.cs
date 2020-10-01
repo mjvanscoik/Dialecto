@@ -26,6 +26,8 @@ namespace Dialectico.Data
         public int RatingId { get; set; }
         public virtual Rating Rating { get; set; }
 
+        public List<Dialect> DialectList { get; set; }
+        public enum Dialect { Algerian, Bahrani, ComorosIslands, Djibouti, Egyptian, Iraqi, Jordanian, Kuwaiti, Lebanese, Lybian, Morrocan, Mauritanian, Omani, Palistinian, Qatari, Saudi, Somali, Sudanese, Syrian, Tunisian, Emarati, Yemeni, ModernStandard, ClassicalArabic, Quranic }
     }
     
 }
