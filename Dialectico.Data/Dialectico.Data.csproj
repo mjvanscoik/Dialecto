@@ -72,6 +72,30 @@
     <Compile Include="Migrations\202010011824005_beginningMeaningCrud.Designer.cs">
       <DependentUpon>202010011824005_beginningMeaningCrud.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010011849288_addedMeaningRow-WordName.cs" />
+    <Compile Include="Migrations\202010011849288_addedMeaningRow-WordName.Designer.cs">
+      <DependentUpon>202010011849288_addedMeaningRow-WordName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010012141177_MeaningCreate.cs" />
+    <Compile Include="Migrations\202010012141177_MeaningCreate.Designer.cs">
+      <DependentUpon>202010012141177_MeaningCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010022054515_meaning.cs" />
+    <Compile Include="Migrations\202010022054515_meaning.Designer.cs">
+      <DependentUpon>202010022054515_meaning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010051622216_AddedNotesProp4Word.cs" />
+    <Compile Include="Migrations\202010051622216_AddedNotesProp4Word.Designer.cs">
+      <DependentUpon>202010051622216_AddedNotesProp4Word.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010051635388_fixedTheAbilityToAddNotes2Words.cs" />
+    <Compile Include="Migrations\202010051635388_fixedTheAbilityToAddNotes2Words.Designer.cs">
+      <DependentUpon>202010051635388_fixedTheAbilityToAddNotes2Words.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010051933266_addedPronuncation2Meaning.cs" />
+    <Compile Include="Migrations\202010051933266_addedPronuncation2Meaning.Designer.cs">
+      <DependentUpon>202010051933266_addedPronuncation2Meaning.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rating.cs" />
@@ -94,6 +118,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010011824005_beginningMeaningCrud.resx">
       <DependentUpon>202010011824005_beginningMeaningCrud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010011849288_addedMeaningRow-WordName.resx">
+      <DependentUpon>202010011849288_addedMeaningRow-WordName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010012141177_MeaningCreate.resx">
+      <DependentUpon>202010012141177_MeaningCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010022054515_meaning.resx">
+      <DependentUpon>202010022054515_meaning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010051622216_AddedNotesProp4Word.resx">
+      <DependentUpon>202010051622216_AddedNotesProp4Word.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010051635388_fixedTheAbilityToAddNotes2Words.resx">
+      <DependentUpon>202010051635388_fixedTheAbilityToAddNotes2Words.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010051933266_addedPronuncation2Meaning.resx">
+      <DependentUpon>202010051933266_addedPronuncation2Meaning.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

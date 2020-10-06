@@ -15,9 +15,13 @@ namespace Dialectico.Data
         public string WordName { get; set; }
         public string RootName { get; set; }
 
+        public string Notes { get; set; }
+
         [ForeignKey(nameof(Root))]
         public int RootId { get; set; }
         public virtual Root Root { get; set; }
+
+        public virtual List<Meaning> Meanings { get; set; }
     }
     
 }

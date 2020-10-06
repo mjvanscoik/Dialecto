@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Dialectico.Models.MeaningListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Meanings - raw view</h2>
+
+<p>
+    If you'd like to create a new meaning for a word, please look up the word first and then submit your meaning.
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.WordName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Context)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.WordName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Context)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.MeaningId }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.MeaningId  })
+        </td>
+    </tr>
+}
+
+</table>

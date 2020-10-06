@@ -1,4 +1,4 @@
-﻿@model Dialectico.Models.WordListItem
+﻿@model Dialectico.Models.MeaningListItem
 
 @{
     ViewBag.Title = "Delete";
@@ -8,9 +8,17 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>WordListItem</h4>
+    <h4>Meaning to be deleted</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MeaningId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MeaningId)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.WordName)
         </dt>
@@ -20,27 +28,27 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.RootName)
+            @Html.DisplayNameFor(model => model.Pronunciation)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.RootName)
+            @Html.DisplayFor(model => model.Pronunciation)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Notes)
+            @Html.DisplayNameFor(model => model.Context)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Notes)
+            @Html.DisplayFor(model => model.Context)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.RootId)
+            @Html.DisplayNameFor(model => model.Description)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.RootId)
+            @Html.DisplayFor(model => model.Description)
         </dd>
 
     </dl>

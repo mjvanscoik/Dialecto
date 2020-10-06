@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MeaningController.cs" />
     <Compile Include="Controllers\RootController.cs" />
     <Compile Include="Controllers\WordController.cs" />
     <Compile Include="Global.asax.cs">
@@ -244,6 +245,13 @@
     <Content Include="Views\Word\Index.cshtml" />
     <Content Include="Views\Word\Edit.cshtml" />
     <Content Include="Views\Word\Delete.cshtml" />
+    <Content Include="Views\Meaning\Index.cshtml" />
+    <Content Include="Views\Word\CreateMeaning.cshtml" />
+    <Content Include="Views\Word\Details.cshtml" />
+    <Content Include="Views\Meaning\Edit.cshtml" />
+    <Content Include="Views\Meaning\Delete.cshtml" />
+    <Content Include="Views\Word\EditMeaning.cshtml" />
+    <Content Include="Views\Word\DeleteMeaning.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

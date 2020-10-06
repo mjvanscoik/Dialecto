@@ -21,6 +21,7 @@ namespace Dialectico.MVC.Controllers
         //Get Create
         public ActionResult Create()
         {
+            
             return View();
         }
         //Post create
@@ -36,8 +37,8 @@ namespace Dialectico.MVC.Controllers
             { return View(model); }
 
             var service = new WordService();
-            bool isRootChecked = service.RootIsNotInDb(model);
-            if (isRootChecked == false)
+            bool isRootInDb = service.RootIsInDb(model);
+            if (isRootInDb == true)
             {
                 service.CreateWord(model);
 
@@ -57,10 +58,9 @@ namespace Dialectico.MVC.Controllers
             var model =
                 new WordListItem
                 {
-                    WordId = detail.WordId,
                     WordName = detail.WordName,
                     RootName = detail.RootName,
-                    RootId = detail.RootId,
+                    Notes = detail.Notes
                 };
             return View(model);
         }
@@ -112,6 +112,87 @@ namespace Dialectico.MVC.Controllers
             TempData["SaveResult"] = "Your note was deleted";
 
             return RedirectToAction("Index");
+        }
+
+        public ActionResult CreateMeaning(int id)
+        {
+            var service = new WordService();
+            var word = service.GetWordById(id);
+            var meaning = new MeaningCreate
+            {
+                WordName = word.WordName,    
+            };
+            return View(meaning);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateMeaning(int id, MeaningCreate model)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            
+
+            //if(is null)
+           // { return View(model); }
+
+            var serviceMeaning = new MeaningService();
+            var serviceWord = new WordService();
+            var word = serviceWord.GetWordById(id);
+            
+            //Need to add new meanings to the meaninglist propery in word.
+
+            serviceMeaning.CreateMeaning(word, model);
+            return RedirectToAction("Index");
+        }
+        public ActionResult Details(int id)
+        {
+            var svc = new WordService();
+            var model = svc.GetWordById(id);
+            
+
+            return View(model);
+        }
+        public ActionResult MeaningIndex(int id)
+        {
+            var service = new MeaningService();
+            var model = service.GetMeaningsById(id);
+            return View(model);
+        }
+
+        public ActionResult EditMeaning(int id)
+        {
+            var service = new MeaningService();
+            var oldMeaning = service.GetMeaningById(id);
+            return View(oldMeaning);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditMeaning(MeaningListItem oldMeaning)
+        {
+            var service = new MeaningService();
+            var update = service.UpdateMeaning(oldMeaning);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult DeleteMeaning (int id)
+        {
+            var service = new MeaningService();
+            var meaningToDelete = service.GetMeaningById(id);
+            return View(meaningToDelete);
+        }
+
+        [HttpPost]
+        [ActionName("DeleteMeaning")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteMeaningWId(int id)
+        {
+            var service = new MeaningService();
+            service.DeleteMeaning(id);
+            return RedirectToAction("Index");
+
         }
     }
 }

@@ -20,6 +20,7 @@ namespace Dialectico.Service
             var wordList = wordEntities.Select(r => new WordListItem
             {
                 WordId = r.WordId,
+                Notes = r.Notes,
                 WordName = r.WordName,
                 RootName = r.RootName,
                 RootId = r.RootId,
@@ -27,7 +28,7 @@ namespace Dialectico.Service
             return wordList;
         }
 
-        public WordListItem GetWordById(int id)
+        public WordDetail GetWordById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -35,13 +36,32 @@ namespace Dialectico.Service
                     ctx
                         .Words
                         .Single(e => e.WordId == id);
+
+                var list = new List<MeaningListItem>();
+
+                foreach (var item in entity.Meanings)
+                {//Converting meanings into meaninglistitems
+                    var conversion = new MeaningListItem
+                    {
+                        MeaningId = item.MeaningId,
+                        WordName = item.WordName,
+                        Pronunciation = item.Pronunciation,
+                        Context = item.Context,
+                        Description = item.Description,
+                        RegionalDialect = item.RegionalDialect,
+                        DialectList = item.DialectList
+                    };
+                    list.Add(conversion);
+                }
+
                 return
-                    new WordListItem //Detail?
+                    new WordDetail
                     {
                         WordId = entity.WordId,
+                        Notes = entity.Notes,
                         WordName = entity.WordName,
                         RootName = entity.RootName,
-                        RootId = entity.RootId,
+                        Meanings = list,
                     };
             }
         }
@@ -61,6 +81,7 @@ namespace Dialectico.Service
                         {
                             WordName = model.WordName,
                             RootName = model.RootName,
+                            Notes = model.Notes,
                             RootId = rId.Id
                         };
 
@@ -79,7 +100,7 @@ namespace Dialectico.Service
             {
                 using (var ctx = new ApplicationDbContext())
                 {
-                    if (RootIsNotInDb(model) == true)
+                    if (RootIsInDb(model) == false)
                     {
                         var root = new Root()
                         {
@@ -89,13 +110,14 @@ namespace Dialectico.Service
                         ctx.Roots.Add(root);
 
 
-                        var rId = _db.Roots.Where(r => r.RootName == model.RootName).Select(r => r.Id).FirstOrDefault();
-                        var entity = new Word()
+                        var rootId = _db.Roots.Where(r => r.RootName == model.RootName).Select(r => r.Id).FirstOrDefault();
+
+                        var entity = new Word
                         {
                             WordName = model.WordName,
                             RootName = model.RootName,
-                            RootId = rId
-
+                            Notes = model.Notes,
+                            RootId = rootId
                         };
 
                         ctx.Words.Add(entity);
@@ -117,6 +139,7 @@ namespace Dialectico.Service
 
                 entity.RootName = model.RootName;
                 entity.WordName = model.WordName;
+                entity.Notes = model.Notes;
                 entity.RootId = ctx.Roots.Where(e => e.RootName == entity.RootName).Select(e => e.Id).FirstOrDefault();
 
 
@@ -135,13 +158,13 @@ namespace Dialectico.Service
             }
         }
 
-            public bool RootIsNotInDb(WordCreate model)
-            {
-                var doesExist = _db.Roots.Where(e => e.RootName == model.RootName).Any();
-                if (doesExist is true)
-                    return false;
+        public bool RootIsInDb(WordCreate model)
+        {
+            var doesExist = _db.Roots.Where(e => e.RootName == model.RootName).Any();
+            if (doesExist is true)
                 return true;
-            }
+            return false;
+        }
     }
 }
 

@@ -1,0 +1,64 @@
+﻿@model Dialectico.Models.WordDetail
+
+    <div>
+        <h1>@Html.DisplayFor(m => m.WordName)</h1>
+        <h4> Root: @Html.DisplayFor(m => Model.RootName)</h4>
+        <br />
+        <p>
+            @Html.DisplayFor(m => m.Notes)
+        </p>
+        <p>
+            @Html.ActionLink("Create New Meaning", "CreateMeaning", new { id = Model.WordId })
+        </p>
+
+        <hr />
+    </div>
+
+    @foreach (var item in Model.Meanings)
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="2">@Html.DisplayFor(modelItem => item.Pronunciation)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Meaning ID: </td>
+                    <td>@Html.DisplayFor(modelItem => item.MeaningId)</td>
+                </tr>
+                <tr>
+                    <td>Context: </td>
+                    <td>@Html.DisplayFor(modelItem => item.Context)</td>
+                </tr>
+                <tr>
+                    <td>Description: </td>
+                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                </tr>
+                <tr>
+                    <td>Dialect: </td>
+                    <td>@Html.DisplayFor(modelItem => item.RegionalDialect)</td>
+                </tr>
+                <tr>
+                    <td>Dialects Sharing Meaning: </td>
+                    <td>@Html.DisplayFor(modelItem => item.DialectList)</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        @Html.ActionLink("Edit Meaning", "EditMeaning", new { id = item.MeaningId}) |
+                        @Html.ActionLink("Delete Meaning", "DeleteMeaning", new { id = item.MeaningId })
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        <br />
+        <hr />
+    
+}
+
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.WordId}) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>

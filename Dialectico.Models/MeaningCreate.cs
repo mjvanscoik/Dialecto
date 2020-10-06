@@ -9,17 +9,16 @@ using System.Threading.Tasks;
 
 namespace Dialectico.Models
 {
-    public class WordCreate
+
+    public class MeaningCreate
     {
-       
-        [Required]
         public string WordName { get; set; }
-
+        public string Pronunciation { get; set; }
+        public string Context { get; set; }
         [Required]
-        public string RootName { get; set; }
+        public string Description { get; set; }
+        [Required]
+        public Dialect RegionalDialect { get; set; }
 
-        public string Notes { get; set; }
-
-        
     }
 }

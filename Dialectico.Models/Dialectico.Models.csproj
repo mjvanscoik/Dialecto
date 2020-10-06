@@ -48,10 +48,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MeaningCreate.cs" />
+    <Compile Include="MeaningListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RootCreate.cs" />
     <Compile Include="RootListItem.cs" />
     <Compile Include="WordCreate.cs" />
+    <Compile Include="WordDetail.cs" />
     <Compile Include="WordListItem.cs" />
   </ItemGroup>
   <ItemGroup>

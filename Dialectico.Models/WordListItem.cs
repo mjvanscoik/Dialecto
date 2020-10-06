@@ -15,6 +15,7 @@ namespace Dialectico.Models
         public int WordId { get; set; }
         public string WordName { get; set; }
         public string RootName { get; set; }
+        public string Notes { get; set; }
 
         [ForeignKey(nameof(Root))]
         public int RootId { get; set; }
