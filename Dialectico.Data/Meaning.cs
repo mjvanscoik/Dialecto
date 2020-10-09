@@ -25,9 +25,9 @@ namespace Dialectico.Data
         public string Description { get; set; }
 
         [Range(0, 10)]
-        public double UserRating { get; set; }
+        public double? CumulativeRating { get; set; }
 
-        public virtual List<Rating> Ratings { get; set; }
+        public virtual List<Rating> RatingsList { get; set; }
 
         public Dialect RegionalDialect { get; set; }
 

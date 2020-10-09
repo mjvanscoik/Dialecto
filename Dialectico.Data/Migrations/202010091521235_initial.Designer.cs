@@ -7,13 +7,13 @@ namespace Dialectico.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class beginningMeaningCrud : IMigrationMetadata
+    public sealed partial class initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(beginningMeaningCrud));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "202010011824005_beginningMeaningCrud"; }
+            get { return "202010091521235_initial"; }
         }
         
         string IMigrationMetadata.Source

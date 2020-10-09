@@ -51,6 +51,8 @@
     <Compile Include="MeaningCreate.cs" />
     <Compile Include="MeaningListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RatingCreate.cs" />
+    <Compile Include="RatingListItem.cs" />
     <Compile Include="RootCreate.cs" />
     <Compile Include="RootListItem.cs" />
     <Compile Include="WordCreate.cs" />

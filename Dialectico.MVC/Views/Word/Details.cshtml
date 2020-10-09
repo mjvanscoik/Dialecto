@@ -48,7 +48,8 @@
                 <tr>
                     <td>
                         @Html.ActionLink("Edit Meaning", "EditMeaning", new { id = item.MeaningId}) |
-                        @Html.ActionLink("Delete Meaning", "DeleteMeaning", new { id = item.MeaningId })
+                        @Html.ActionLink("Delete Meaning", "DeleteMeaning", new { id = item.MeaningId }) |
+                        @Html.ActionLink("Rate This Meaning", "CreateRating", new { id = item.MeaningId }) |
                     </td>
                 </tr>
             </tfoot>

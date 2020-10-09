@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="MeaningService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RatingService.cs" />
     <Compile Include="RootService.cs" />
     <Compile Include="WordService.cs" />
   </ItemGroup>

@@ -10,7 +10,6 @@ namespace Dialectico.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Dialectico.Data.ApplicationDbContext";
         }
 
         protected override void Seed(Dialectico.Data.ApplicationDbContext context)

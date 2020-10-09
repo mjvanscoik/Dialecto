@@ -1,0 +1,74 @@
+﻿@model Dialectico.Models.MeaningListItem
+
+@{
+    ViewBag.Title = "DisplayComments";
+}
+
+<h2>DisplayComments</h2>
+
+<div>
+    <h4>MeaningListItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MeaningId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MeaningId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WordName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WordName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pronunciation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pronunciation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Context)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Context)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CumulativeRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CumulativeRating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WordId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WordId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MeaningId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

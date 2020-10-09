@@ -39,8 +39,9 @@ namespace Dialectico.Service
                 Context = m.Context,
                 Description = m.Description,
                 RegionalDialect = m.RegionalDialect,
-                //UserRating = m.UserRating,
-                //RegionalDialect = (Models.Dialect)m.RegionalDialect,
+                CumulativeRating = m.CumulativeRating,
+                Pronunciation = m.Pronunciation,
+                RatingsList = m.RatingsList,
             });
             return meaningList; 
         }
@@ -62,7 +63,10 @@ namespace Dialectico.Service
                         Context = entity.Context,
                         Description = entity.Description,
                         RegionalDialect = entity.RegionalDialect,
-                        DialectList = entity.DialectList
+                        DialectList = entity.DialectList,
+                       // RatingsList = entity.RatingsList,
+                        CumulativeRating = entity.CumulativeRating,
+                        
                     };
             }
 
@@ -82,9 +86,7 @@ namespace Dialectico.Service
                     Context = model.Context,
                     Description = model.Description,
                     RegionalDialect = (Data.Dialect)model.RegionalDialect,
-                    //UserRating = model.UserRating,
-                    //Rating = model.Rating,
-                    //RatingId = model.RatingId
+                    CumulativeRating = null,
                 };
                 ctx.Meanings.Add(entity);
                 
@@ -107,6 +109,8 @@ namespace Dialectico.Service
                 entity.Description = model.Description;
                 entity.RegionalDialect = model.RegionalDialect;
                 entity.DialectList = model.DialectList;
+                entity.CumulativeRating = model.CumulativeRating;
+
 
                 return ctx.SaveChanges() == 1;
             }

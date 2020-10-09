@@ -3,7 +3,7 @@ namespace Dialectico.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -13,26 +13,29 @@ namespace Dialectico.Data.Migrations
                     {
                         MeaningId = c.Int(nullable: false, identity: true),
                         WordId = c.Int(nullable: false),
+                        WordName = c.String(),
+                        Pronunciation = c.String(),
                         Context = c.String(),
                         Description = c.String(),
-                        UserRating = c.Double(nullable: false),
-                        RatingId = c.Int(nullable: false),
+                        CumulativeRating = c.Double(),
+                        RegionalDialect = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.MeaningId)
-                .ForeignKey("dbo.Rating", t => t.RatingId, cascadeDelete: true)
                 .ForeignKey("dbo.Word", t => t.WordId, cascadeDelete: true)
-                .Index(t => t.WordId)
-                .Index(t => t.RatingId);
+                .Index(t => t.WordId);
             
             CreateTable(
                 "dbo.Rating",
                 c => new
                     {
                         RatingId = c.Int(nullable: false, identity: true),
-                        UserRating = c.Int(nullable: false),
+                        IndividualRating = c.Int(nullable: false),
                         Comment = c.String(),
+                        MeaningId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.RatingId);
+                .PrimaryKey(t => t.RatingId)
+                .ForeignKey("dbo.Meaning", t => t.MeaningId, cascadeDelete: true)
+                .Index(t => t.MeaningId);
             
             CreateTable(
                 "dbo.Word",
@@ -40,6 +43,8 @@ namespace Dialectico.Data.Migrations
                     {
                         WordId = c.Int(nullable: false, identity: true),
                         WordName = c.String(),
+                        RootName = c.String(),
+                        Notes = c.String(),
                         RootId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.WordId)
@@ -136,13 +141,13 @@ namespace Dialectico.Data.Migrations
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
             DropForeignKey("dbo.Meaning", "WordId", "dbo.Word");
             DropForeignKey("dbo.Word", "RootId", "dbo.Root");
-            DropForeignKey("dbo.Meaning", "RatingId", "dbo.Rating");
+            DropForeignKey("dbo.Rating", "MeaningId", "dbo.Meaning");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
             DropIndex("dbo.Word", new[] { "RootId" });
-            DropIndex("dbo.Meaning", new[] { "RatingId" });
+            DropIndex("dbo.Rating", new[] { "MeaningId" });
             DropIndex("dbo.Meaning", new[] { "WordId" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");

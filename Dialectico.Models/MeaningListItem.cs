@@ -20,13 +20,17 @@ namespace Dialectico.Models
         public string Description { get; set; }
 
         //[Range(0, 10)]
-       // public double UserRating { get; set; }
-
-        //public double AveragedUserRating { get; set; }
+        public double? CumulativeRating { get; set; }
 
         public Dialect RegionalDialect { get; set; }
 
         public List<Dialect> DialectList { get; set; }
+
+        public List<Rating> RatingsList { get; set; }
+
+        public int WordId { get; set; }
+
+        public virtual Word Word { get; set; }
     }
 }
 

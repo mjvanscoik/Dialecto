@@ -194,6 +194,38 @@ namespace Dialectico.MVC.Controllers
             return RedirectToAction("Index");
 
         }
+
+        //////------RATING
+        public ActionResult DisplayComments(int id)
+        {
+            var service = new MeaningService();
+            var model = service.GetMeaningById(id);
+            return View(model);
+        }
+
+        public ActionResult CreateRating(int id)
+        {
+            var service = new MeaningService();
+            var model = service.GetMeaningById(id);
+            var rating = new RatingCreate()
+            {
+                MeaningId = model.MeaningId,
+            };
+            return View(rating);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateRating(int id, RatingCreate ratingModel)
+        {
+            var serviceRating = new RatingService();
+            var serviceMeaning = new MeaningService();
+            var meaning = serviceMeaning.GetMeaningById(id);
+
+            serviceRating.CreateRating(id, ratingModel);
+
+            return RedirectToAction("DisplayComments", "Word", new { id = meaning.MeaningId });
+        }
     }
 }
 //
