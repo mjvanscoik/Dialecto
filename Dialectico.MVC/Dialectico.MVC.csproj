@@ -256,6 +256,7 @@
     <Content Include="Views\Word\DisplayComments.cshtml" />
     <Content Include="Views\Word\EditRating.cshtml" />
     <Content Include="Views\Word\DeleteRating.cshtml" />
+    <Content Include="Views\Root\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -18,6 +18,8 @@ namespace Dialectico.Data
 
         [Required]
         public string NotesOnRoot { get; set; }
+
+        public virtual List<Word> WordsList { get; set; }
         
     }
 }

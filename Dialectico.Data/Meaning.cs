@@ -25,7 +25,25 @@ namespace Dialectico.Data
         public string Description { get; set; }
 
         [Range(0, 10)]
-        public double? CumulativeRating { get; set; }
+        public double? CumulativeRating { get
+            {
+                try
+                {
+                    double aggrigate = RatingsList.Where(r => r.IndividualRating >= 0 && r.IndividualRating <= 10).Sum(r => r.IndividualRating);
+
+                    double count = RatingsList.Count();
+
+                    double quotient = aggrigate / count;
+
+                    return quotient;
+                }
+                catch (Exception)
+                {
+                    return null;
+                    throw;
+                }
+            }
+                }
 
         public virtual List<Rating> RatingsList { get; set; }
 

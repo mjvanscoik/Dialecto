@@ -32,11 +32,27 @@ namespace Dialectico.Service
                     ctx
                         .Roots
                         .Single(e => e.Id == id);
+
+                var list = new List<WordListItem>();
+
+                foreach (var item in entity.WordsList)
+                {
+                    var conversion = new WordListItem
+                    {
+                        RootId = item.RootId,
+                        RootName = item.RootName,
+                        WordId = item.WordId,
+                        Notes = item.Notes,
+                        WordName = item.WordName,
+                    };
+                    list.Add(conversion);
+                }
                 return
                     new RootListItem
                     {
                         RootName = entity.RootName,
-                        NotesOnRoot = entity.NotesOnRoot
+                        NotesOnRoot = entity.NotesOnRoot,
+                        WordsList = list,
                     };
             }
         }

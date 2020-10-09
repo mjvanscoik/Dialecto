@@ -1,0 +1,57 @@
+﻿@model Dialectico.Models.RootListItem
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Root</h2>
+
+<div>
+    <h4>RootListItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RootName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RootName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NotesOnRoot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotesOnRoot)
+        </dd>
+
+    </dl>
+</div>
+@foreach (var item in Model.WordsList)
+{
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    Derivation: @Html.DisplayFor(model => item.WordName)
+                </td>
+                    </tr>
+            <tr>
+                <td>
+                Notes on word: @Html.DisplayFor(model => item.Notes)
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>@Html.ActionLink("Meanings", "Details", "Word", new { id = item.WordId }, null)</td>
+            </tr>
+        </tfoot>
+    </table>
+<hr />
+}
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

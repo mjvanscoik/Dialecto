@@ -40,6 +40,12 @@ namespace Dialectico.MVC.Controllers
 
             return RedirectToAction("Index");
         }
+        public ActionResult Details(int id)
+        {
+            var service = new RootService();
+            var model = service.GetRootById(id);
+            return View(model);
+        }
         //Get Delete
         public ActionResult Delete(int id)
         {

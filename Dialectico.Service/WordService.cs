@@ -84,9 +84,12 @@ namespace Dialectico.Service
                             WordName = model.WordName,
                             RootName = model.RootName,
                             Notes = model.Notes,
-                            RootId = rId.Id
+                            RootId = rId.Id,
+                            WordId = model.WordId
+                            
                         };
 
+                        //rId.WordsList.Add(entity);//___
                         ctx.Words.Add(entity);
                         return ctx.SaveChanges() == 1;
                     }
@@ -122,6 +125,7 @@ namespace Dialectico.Service
                             RootId = rootId
                         };
 
+                        //root.WordsList.Add(entity);//_______
                         ctx.Words.Add(entity);
                         return ctx.SaveChanges() == 2;
                     }

@@ -60,6 +60,10 @@
     <Compile Include="Migrations\202010091521235_initial.Designer.cs">
       <DependentUpon>202010091521235_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010091843329_addedLogic4CumulativeRating.cs" />
+    <Compile Include="Migrations\202010091843329_addedLogic4CumulativeRating.Designer.cs">
+      <DependentUpon>202010091843329_addedLogic4CumulativeRating.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rating.cs" />
@@ -73,6 +77,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202010091521235_initial.resx">
       <DependentUpon>202010091521235_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010091843329_addedLogic4CumulativeRating.resx">
+      <DependentUpon>202010091843329_addedLogic4CumulativeRating.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

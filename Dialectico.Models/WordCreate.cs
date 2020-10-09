@@ -12,6 +12,8 @@ namespace Dialectico.Models
     public class WordCreate
     {
        
+        public int WordId { get; set;
+        }
         [Required]
         public string WordName { get; set; }
 

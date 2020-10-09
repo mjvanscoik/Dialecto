@@ -86,7 +86,7 @@ namespace Dialectico.Service
                     Context = model.Context,
                     Description = model.Description,
                     RegionalDialect = (Data.Dialect)model.RegionalDialect,
-                    CumulativeRating = null,
+                    //CumulativeRating = null,
                 };
                 ctx.Meanings.Add(entity);
                 
@@ -109,7 +109,7 @@ namespace Dialectico.Service
                 entity.Description = model.Description;
                 entity.RegionalDialect = model.RegionalDialect;
                 entity.DialectList = model.DialectList;
-                entity.CumulativeRating = model.CumulativeRating;
+                //entity.CumulativeRating = model.CumulativeRating;
 
 
                 return ctx.SaveChanges() == 1;

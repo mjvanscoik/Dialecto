@@ -258,7 +258,7 @@ namespace Dialectico.MVC.Controllers
         [HttpPost]
         [ActionName("DeleteRating")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteRatingWId(int id)////------Doesn't redirect
+        public ActionResult DeleteRatingWId(int id)
         {
             var service = new RatingService();
             var rating = service.GetRatingById(id);

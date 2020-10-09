@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dialectico.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,7 @@ namespace Dialectico.Models
         public string RootName { get; set; }
 
         public string NotesOnRoot { get; set; }
+
+        public virtual List<WordListItem> WordsList { get; set; }
     }
 }
