@@ -17,7 +17,7 @@ namespace Dialectico.Models
         public string RootName { get; set; }
         public string Notes { get; set; }
 
-        [ForeignKey(nameof(Root))]
+       
         public int RootId { get; set; }
         public virtual Root Root { get; set; }
     }

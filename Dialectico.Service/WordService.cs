@@ -49,7 +49,9 @@ namespace Dialectico.Service
                         Context = item.Context,
                         Description = item.Description,
                         RegionalDialect = item.RegionalDialect,
-                        DialectList = item.DialectList
+                        DialectList = item.DialectList,
+                        WordId = item.WordId,
+                        CumulativeRating = item.CumulativeRating,
                     };
                     list.Add(conversion);
                 }

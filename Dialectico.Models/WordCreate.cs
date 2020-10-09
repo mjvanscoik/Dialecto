@@ -18,6 +18,8 @@ namespace Dialectico.Models
         [Required]
         public string RootName { get; set; }
 
+        public int RootId { get; set; }
+
         public string Notes { get; set; }
 
         

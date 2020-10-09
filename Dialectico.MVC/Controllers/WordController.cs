@@ -58,6 +58,8 @@ namespace Dialectico.MVC.Controllers
             var model =
                 new WordListItem
                 {
+                    WordId = detail.WordId,
+                    RootId = detail.WordId,
                     WordName = detail.WordName,
                     RootName = detail.RootName,
                     Notes = detail.Notes
