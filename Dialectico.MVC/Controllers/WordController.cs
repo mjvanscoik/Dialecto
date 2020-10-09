@@ -21,7 +21,7 @@ namespace Dialectico.MVC.Controllers
         //Get Create
         public ActionResult Create()
         {
-            
+
             return View();
         }
         //Post create
@@ -120,7 +120,7 @@ namespace Dialectico.MVC.Controllers
             var word = service.GetWordById(id);
             var meaning = new MeaningCreate
             {
-                WordName = word.WordName,    
+                WordName = word.WordName,
             };
             return View(meaning);
         }
@@ -128,19 +128,19 @@ namespace Dialectico.MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreateMeaning(int id, MeaningCreate model)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(model);
             }
-            
+
 
             //if(is null)
-           // { return View(model); }
+            // { return View(model); }
 
             var serviceMeaning = new MeaningService();
             var serviceWord = new WordService();
             var word = serviceWord.GetWordById(id);
-            
+
             //Need to add new meanings to the meaninglist propery in word.
 
             serviceMeaning.CreateMeaning(word, model);
@@ -150,7 +150,7 @@ namespace Dialectico.MVC.Controllers
         {
             var svc = new WordService();
             var model = svc.GetWordById(id);
-            
+
 
             return View(model);
         }
@@ -177,7 +177,7 @@ namespace Dialectico.MVC.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult DeleteMeaning (int id)
+        public ActionResult DeleteMeaning(int id)
         {
             var service = new MeaningService();
             var meaningToDelete = service.GetMeaningById(id);
@@ -225,6 +225,26 @@ namespace Dialectico.MVC.Controllers
             serviceRating.CreateRating(id, ratingModel);
 
             return RedirectToAction("DisplayComments", "Word", new { id = meaning.MeaningId });
+        }
+
+        public ActionResult EditRating(int id)
+        {
+            var service = new RatingService();
+            var oldRating = service.GetRatingById(id);
+            return View(oldRating);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditRating(RatingListItem oldRating)
+        {
+            var service = new RatingService();
+            service.UpdateRating(oldRating);
+
+           
+
+            return RedirectToAction("DisplayComments", "Word", new { id = oldRating.MeaningId });
         }
     }
 }

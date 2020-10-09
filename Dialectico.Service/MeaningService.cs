@@ -64,7 +64,7 @@ namespace Dialectico.Service
                         Description = entity.Description,
                         RegionalDialect = entity.RegionalDialect,
                         DialectList = entity.DialectList,
-                       // RatingsList = entity.RatingsList,
+                       RatingsList = entity.RatingsList,
                         CumulativeRating = entity.CumulativeRating,
                         
                     };

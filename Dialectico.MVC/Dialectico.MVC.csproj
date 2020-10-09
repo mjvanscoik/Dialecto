@@ -254,6 +254,7 @@
     <Content Include="Views\Word\DeleteMeaning.cshtml" />
     <Content Include="Views\Word\CreateRating.cshtml" />
     <Content Include="Views\Word\DisplayComments.cshtml" />
+    <Content Include="Views\Word\EditRating.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

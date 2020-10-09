@@ -45,9 +45,10 @@ namespace Dialectico.Service
 
                 return new RatingListItem
                 {
+                    RatingId = entity.RatingId,
                     IndividualRating = entity.IndividualRating,
                     Comment = entity.Comment,
-                    Meaning = entity.Meaning,
+                    MeaningId =entity.MeaningId,
                 };
             }
         }
@@ -64,6 +65,7 @@ namespace Dialectico.Service
                     MeaningId = meaning.MeaningId,
                     Comment = rating.Comment,
                     IndividualRating = rating.IndividualRating,
+                    RatingId = rating.RatingId,
                     
                 };
                 ctx.Ratings.Add(entity);
@@ -83,7 +85,7 @@ namespace Dialectico.Service
                 entity.RatingId = model.RatingId;
                 entity.IndividualRating = model.IndividualRating;
                 entity.Comment = model.Comment;
-                entity.MeaningId = model.Meaning.MeaningId;
+                entity.MeaningId = model.MeaningId;
 
                 return ctx.SaveChanges() == 1;
             }

@@ -68,6 +68,36 @@
 
     </dl>
 </div>
+<hr />
+@foreach (var item in Model.RatingsList)
+{
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(modelItem => item.IndividualRating)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(modelItem => item.IndividualRating)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(modelItem => item.Comment)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <p>
+            @Html.ActionLink("Edit Comment/Rating", "EditRating", new { id = item.RatingId }) |
+            @Html.ActionLink("Delete Rating", "DeleteRating", new { id = item.RatingId })
+        </p>
+    </div>
+    <hr />
+}
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.MeaningId }) |
     @Html.ActionLink("Back to List", "Index")

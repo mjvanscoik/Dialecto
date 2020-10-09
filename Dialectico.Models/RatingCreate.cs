@@ -9,6 +9,7 @@ namespace Dialectico.Models
 {
     public class RatingCreate
     {
+        public int RatingId { get; set;  }
         public int IndividualRating { get; set; }
 
         public string Comment { get; set; }
