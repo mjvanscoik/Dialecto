@@ -246,6 +246,24 @@ namespace Dialectico.MVC.Controllers
 
             return RedirectToAction("DisplayComments", "Word", new { id = oldRating.MeaningId });
         }
+        public ActionResult DeleteRating(int id)
+        {
+            var service = new RatingService();
+            var RatingToDelete = service.GetRatingById(id);
+            return View(RatingToDelete);
+        }
+
+        [HttpPost]
+        [ActionName("DeleteRating")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteRatingWId(int id)////------Doesn't redirect
+        {
+            var service = new RatingService();
+            var rating = service.GetRatingById(id);
+            int MeaningId = rating.MeaningId;
+            service.DeleteRating(id);
+            return RedirectToAction("DisplayComments", "Word", new { id = MeaningId});
+        }
     }
 }
 //
