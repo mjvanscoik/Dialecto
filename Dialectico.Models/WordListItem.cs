@@ -1,6 +1,7 @@
 ﻿using Dialectico.Data;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -13,8 +14,13 @@ namespace Dialectico.Models
     {
         [Key]
         public int WordId { get; set; }
+
+        [DisplayName("Word")]
         public string WordName { get; set; }
+
+        [DisplayName("Root")]
         public string RootName { get; set; }
+
         public string Notes { get; set; }
 
        

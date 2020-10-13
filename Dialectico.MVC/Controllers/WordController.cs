@@ -143,10 +143,9 @@ namespace Dialectico.MVC.Controllers
             var serviceWord = new WordService();
             var word = serviceWord.GetWordById(id);
 
-            //Need to add new meanings to the meaninglist propery in word.
 
             serviceMeaning.CreateMeaning(word, model);
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Word", new { id = word.WordId });
         }
         public ActionResult Details(int id)
         {

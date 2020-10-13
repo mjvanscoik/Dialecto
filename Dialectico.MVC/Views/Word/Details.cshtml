@@ -8,8 +8,8 @@
         @Html.DisplayFor(m => m.Notes)
     </p>
     <p>
-        @Html.ActionLink("Edit This Word", "Edit", new { id = Model.WordId }) |
-        @Html.ActionLink("Create New Meaning", "CreateMeaning", new { id = Model.WordId })
+        @Html.ActionLink("Create New Meaning", "CreateMeaning", new { id = Model.WordId }) |
+        @Html.ActionLink("Edit This Word", "Edit", new { id = Model.WordId })
     </p>
 
     <hr />
@@ -50,10 +50,10 @@
         <tfoot>
             <tr>
                 <td>
-                    @Html.ActionLink("Edit Meaning", "EditMeaning", new { id = item.MeaningId }) |
-                    @Html.ActionLink("Delete Meaning", "DeleteMeaning", new { id = item.MeaningId }) |
-                    @Html.ActionLink("Rate This Meaning", "CreateRating", new { id = item.MeaningId }) |
-                    @Html.ActionLink("Display Comments", "DisplayComments", new { id = item.MeaningId })
+                    @Html.ActionLink("Read Insights & Details", "DisplayComments", new { id = item.MeaningId }) |
+                    @Html.ActionLink("Give Your Rating", "CreateRating", new { id = item.MeaningId }) |
+                    @Html.ActionLink("Edit This Meaning", "EditMeaning", new { id = item.MeaningId }) |
+                    @Html.ActionLink("Delete This Meaning", "DeleteMeaning", new { id = item.MeaningId })
                 </td>
             </tr>
         </tfoot>
@@ -65,5 +65,5 @@
 
 <p>
 
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Wordbank", "Index")
 </p>

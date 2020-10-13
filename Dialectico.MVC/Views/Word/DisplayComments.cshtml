@@ -4,19 +4,13 @@
     ViewBag.Title = "DisplayComments";
 }
 
-<h2>DisplayComments</h2>
+<h3>Meaning Feedback</h3>
 
 <div>
-    <h4>MeaningListItem</h4>
+    <h2>@Html.DisplayFor(model => model.WordName) \ @Html.DisplayFor(model => model.RegionalDialect) </h2>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MeaningId)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MeaningId)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.WordName)
@@ -24,6 +18,13 @@
 
         <dd>
             @Html.DisplayFor(model => model.WordName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RegionalDialect)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegionalDialect)
         </dd>
 
         <dt>
@@ -57,7 +58,13 @@
         <dd>
             @Html.DisplayFor(model => model.CumulativeRating)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MeaningId)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.MeaningId)
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.WordId)
         </dt>
@@ -68,6 +75,7 @@
 
     </dl>
 </div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MeaningId })
 <hr />
 @foreach (var item in Model.RatingsList)
 {
@@ -99,6 +107,5 @@
 }
 
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MeaningId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Wordbank", "Index")
 </p>

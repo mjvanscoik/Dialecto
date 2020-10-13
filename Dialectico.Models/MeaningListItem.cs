@@ -1,6 +1,7 @@
 ﻿using Dialectico.Data;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace Dialectico.Models
     public class MeaningListItem
     {
         public int MeaningId { get; set; }
+
+        [DisplayName("Word Name")]
         public string WordName { get; set; }
 
         public string Pronunciation { get; set; }
@@ -20,8 +23,10 @@ namespace Dialectico.Models
         public string Description { get; set; }
 
         //[Range(0, 10)]
+        [DisplayName("Averaged Rating")]
         public double? CumulativeRating { get; set; }
 
+        [DisplayName("Dialect")]
         public Dialect RegionalDialect { get; set; }
 
         public List<Dialect> DialectList { get; set; }

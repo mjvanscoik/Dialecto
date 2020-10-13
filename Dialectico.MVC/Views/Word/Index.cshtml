@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Wordbank</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New Word", "Create")
 </p>
 <table class="table">
     <tr>
@@ -23,23 +23,31 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.WordName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RootName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RootId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.WordId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.WordId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.WordId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.WordName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RootName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RootId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit Word", "Edit", new { id = item.WordId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.WordId }) |
+                @Html.ActionLink("Delete Word", "Delete", new { id = item.WordId })
+            </td>
+        </tr>
+        <tr style="border-style:hidden">
+            <td colspan="4">@Html.DisplayFor(modelItem => item.Notes)</td>
+        </tr>
+
+        <tr>
+            <td></td>
+        </tr>
+    }
 
 </table>

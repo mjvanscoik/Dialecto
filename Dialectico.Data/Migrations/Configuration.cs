@@ -1,4 +1,4 @@
-namespace Dialectico.Data.Migrations
+﻿namespace Dialectico.Data.Migrations
 {
     using System;
     using System.Data.Entity;
@@ -25,7 +25,7 @@ namespace Dialectico.Data.Migrations
             //      new Person { FullName = "Brice Lambson" },
             //      new Person { FullName = "Rowan Miller" }
             //    );
-            //
+            
         }
     }
 }
