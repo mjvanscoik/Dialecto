@@ -109,6 +109,17 @@ namespace Dialectico.MVC.Controllers
             ModelState.AddModelError("", "Your note could not be updated.");
             return View(model);
         }
+
+        public ActionResult Measures(int id)
+        {
+            var service = new RootService();
+            var model = service.GetRootById(id);
+            IEnumerable<string> measures = service.GetMeasures(id);
+            if(model.Measures == null)
+            { model.Measures = measures; }
+
+            return View(model);
+        }
     }
    
 

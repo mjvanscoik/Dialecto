@@ -194,6 +194,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\DialecticoMVC - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\Dialectio - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -260,6 +261,7 @@
     <Content Include="Views\Word\EditRating.cshtml" />
     <Content Include="Views\Word\DeleteRating.cshtml" />
     <Content Include="Views\Root\Details.cshtml" />
+    <Content Include="Views\Root\Measures.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

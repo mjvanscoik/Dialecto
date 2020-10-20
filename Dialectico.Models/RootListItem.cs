@@ -19,5 +19,7 @@ namespace Dialectico.Models
         public string NotesOnRoot { get; set; }
 
         public virtual List<WordListItem> WordsList { get; set; }
+
+        public virtual IEnumerable<string> Measures { get; set; } = new List<string>();
     }
 }
